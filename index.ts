@@ -46,7 +46,13 @@ let scheduleObj: Schedule = new Schedule({
   cssClass: 'schedule-cell-dimension',
   showTimeIndicator: false,
   actionBegin: OnActionBegin,
-  eventSettings: { dataSource: data, editFollowingEvents: true },
+  eventSettings: {
+    dataSource: data,
+    editFollowingEvents: true,
+    fields: {
+      subject: { title: 'Event Name', name: 'Subject', default: '' },
+    },
+  },
   eventRendered: (args: EventRenderedArgs) =>
     applyCategoryColor(args, scheduleObj.currentView),
 });
